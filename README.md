@@ -25,6 +25,9 @@
 
 -downloads zip files also as pptx and error comes when you try to open them or merge them
 
+-uhh also pip install playwright before playwright install
+---
+
 ## Overview
 
 This Python script automates the process of logging into PESU Academy, selecting a course, selecting a unit, opening the first slide, downloading and optionally merging available files using Playwright. All session data is stored only in memory, and the script prompts for your credentials at runtime. It is designed to simplify navigation inside PESU Academy without saving any user data locally.
