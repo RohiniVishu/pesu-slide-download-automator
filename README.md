@@ -15,11 +15,14 @@
 6. [Notes](#notes)
 
 ---
-## issues i found:
+## Issues I found:
 
 -use PESUAuth
+
 -Frontend
+
 -Doesn't download Notes/no option to download notes
+
 -downloads zip files also as pptx and error comes when you try to open them or merge them
 
 ## Overview
