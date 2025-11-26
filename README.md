@@ -25,7 +25,10 @@
 
 -downloads zip files also as pptx and error comes when you try to open them or merge them
 
+-starts downloading all files again if command given again. check for duplicates while downloading files
+
 -uhh also pip install playwright before playwright install
+
 ---
 
 ## Overview
