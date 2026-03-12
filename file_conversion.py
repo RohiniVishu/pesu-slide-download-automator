@@ -51,15 +51,15 @@ def get_batches(folder, batch_size=3):  # can increase or decrease batch size bu
 # Main Converter
 def convert_batch_with_ilovepdf(pptx_files, folder):
     with sync_playwright() as p:
-        browser = p.chromium.launch(headless=True)
+        browser = p.chromium.launch(headless=False)
         context = browser.new_context(accept_downloads=True)
         page = context.new_page()
-        page.route(
-                "**/*",
-                lambda route: route.abort()
-                if route.request.resource_type in ["image", "media", "font"]
-                else route.continue_(),
-            )
+        # page.route(
+        #         "**/*",
+        #         lambda route: route.abort()
+        #         if route.request.resource_type in ["image", "media", "font"]
+        #         else route.continue_(),
+        #     )
         
         page.goto("https://www.ilovepdf.com/powerpoint_to_pdf", timeout=90_000)
 
@@ -98,6 +98,11 @@ def convert_batch_with_ilovepdf(pptx_files, folder):
 # Main conversion controller
 def convert_pptx_to_pdf(folder):
     print(f"Scanning folder: {folder}")
+    
+    # Check if folder exists
+    if not os.path.exists(folder) or not os.path.isdir(folder):
+        print(f"Error: Directory not found: {folder}")
+        return
 
     batches = list(get_batches(folder))
     total_batches = len(batches)
